@@ -1,0 +1,39 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <h3 id="text">Update and let people know</h3>
+    <form action="/listings/<%= item._id %>/?_method=PUT" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" value="<%= item.title %>" name="title" class="form-control">
+        </div>
+        
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" class="form-control"> <%= item.description %></textarea>
+        </div>
+        
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="text" value="<%= item.image %>" name="image" class="form-control"> 
+        </div>
+        
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" value="<%= item.price %>" name="price" class="form-control">
+
+        </div>
+        
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" value="<%= item.location %>" name="location" class="form-control">
+        </div>
+        
+        <div class="mb-3">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" value="<%= item.country %>" name="country" class="form-control">
+        </div>
+        
+        
+        <button class="btn">Update</button>
+    </form>
+</body>

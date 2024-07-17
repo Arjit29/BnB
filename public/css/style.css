@@ -1,0 +1,149 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+.navbar{
+    height: 4rem;
+    background-color: white;
+    /* display: flex !important;
+    justify-content: space-around !important; */
+}
+
+.fa-location-arrow{
+    color: #FF385C;
+    padding-right: 0.6rem;
+}
+
+.navbar-brand{
+    padding-left: 1rem;
+}
+
+.nav-link{
+    color: black !important;
+    padding-left: 2rem !important;
+    padding-right: 4rem !important;
+}
+
+.navbar-nav{
+    padding-left: 3rem !important;
+}
+
+#link3{
+    background-color: #fc6b85;
+    border-radius: 1rem;
+}
+
+#link3:hover{
+    background-color: #fc4a6a;
+}
+
+footer{
+    background-color: #f7f7f7;
+    height: 6rem;
+}
+
+.social-handles{
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.fa-brands{
+    padding-right: 0.8rem;
+    color: black;
+}
+
+.company-name{
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+}
+
+.fa-copyright{
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+}
+
+.page-links{
+    display: flex;
+    justify-content: center;
+   
+}
+
+#link-common{
+    color: black;
+    padding-right: 0.3rem;
+}
+
+.listing-card{
+    margin-bottom: 2rem;
+    border: none !important;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding-left: 0.5rem !important;
+    padding-top: 0.5rem !important;
+}
+
+.card-text{
+    font-weight: 500;
+}
+
+#listing-link{
+    text-decoration: none;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+#text{
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+.btn{
+    color: white !important;
+    background-color: #fc6b85 !important;
+    margin-bottom: 1rem;
+    font-weight: 500 !important;
+    border-radius: 1rem !important;
+}
+
+.btn:hover{
+    background-color: #fc4a6a !important;
+}
+
+
+
+.title-text{
+    font-size: 1.5rem !important;
+}
+
+.delete-style{
+    background-color: #5c645f !important;
+    color: white !important;
+}
+
+.delete-style:hover{
+    background-color: #252926 !important;
+}
+
+.review-card{
+    border: 2px solid;
+}
+
+

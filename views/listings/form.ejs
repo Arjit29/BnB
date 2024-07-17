@@ -1,0 +1,52 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <h3 id="text">Add your BnB</h3>
+    <form action="/listings" method="post" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" placeholder="Enter title" name="title" class="form-control" required>
+            <div class="invalid-feedback">
+                Please choose a title.
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea placeholder="Enter description" name="description" class="form-control" required></textarea>
+            <div class="invalid-feedback">
+                Please add information of your BnB.
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="text" placeholder="Enter image URL" name="image" class="form-control">
+        </div>
+         
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input  placeholder="Enter the price" name="price" class="form-control" required>
+            <div class="invalid-feedback">
+                What's the price?
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" placeholder="Enter location" name="location" class="form-control" required>
+            <div class="invalid-feedback">
+                Where is it situated?
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" placeholder="Enter country" name="country" class="form-control" required>
+            <div class="invalid-feedback">
+                Add more about the country
+            </div>
+        </div>
+        
+        <button class="btn">Add</button>
+    </form>
+</body>
