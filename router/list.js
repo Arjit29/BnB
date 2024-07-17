@@ -4,6 +4,7 @@ const {listingSchema, reviewSchema} = require("../schema.js");
 const ExpressError = require("../utils/ExpressError.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const listing = require("../models/listing.js");
+const isLoggedIn = require("../middleware.js");
 
 const validateListing = (req,res,next)=>{
     let {error} = listingSchema.validate(req.body);
@@ -41,7 +42,7 @@ router.get("/",
     })
 )
 
-router.get("/new",(req,res)=>{
+router.get("/new",isLoggedIn,(req,res)=>{
     res.render("listings/form.ejs");
 })
 
@@ -80,6 +81,7 @@ router.get("/:id",
 // })
 
 router.post("/",
+    isLoggedIn,
     validateListing,
     wrapAsync(async(req,res,next)=>{
         let {title,description,image,price,location,country} = req.body;
@@ -108,6 +110,7 @@ router.get("/:id/edit",
 )
 
 router.put("/:id",
+    isLoggedIn,
     validateListing,
     wrapAsync(async(req,res)=>{
         let {id} = req.params;
@@ -126,6 +129,7 @@ router.put("/:id",
 )
 
 router.delete("/:id",
+    isLoggedIn,
     wrapAsync(async(req,res)=>{
         let {id} = req.params;
         await listing.findByIdAndDelete(id);
