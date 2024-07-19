@@ -9,6 +9,7 @@
               <p class="card-text title-text"><b><%= item.title %></b> </p>
             </div>
             <ul class="list-group list-group-flush">
+                <li class="list-group-item">Owned by: <%= item.owner.username %></li>
                 <li class="list-group-item"><%= item.description %></li>
                 <li class="list-group-item">&#8377;<%= item.price.toLocaleString("en-In")%></li>
                 <li class="list-group-item"><%= item.location %></li>
