@@ -116,6 +116,11 @@ router.put("/:id",
     wrapAsync(async(req,res)=>{
         let {id} = req.params;
         let {title,description,image,price,location,country} = req.body;
+        let partList = await listing.findById(id);
+        if(!partList.owner._id.equals(res.locals.currUser._id)){
+            req.flash("failure","You are not the owner");
+            return res.redirect(`/listings/${id}`);
+        }
         await listing.findByIdAndUpdate(id,{
             title: title,
             description: description,
@@ -133,6 +138,11 @@ router.delete("/:id",
     isLoggedIn,
     wrapAsync(async(req,res)=>{
         let {id} = req.params;
+        let partList = await listing.findById(id);
+        if(!partList.owner._id.equals(res.locals.currUser._id)){
+            req.flash("failure","You are not the owner");
+            return res.redirect(`/listings/${id}`);
+        }
         await listing.findByIdAndDelete(id);
         req.flash("success","Listing deleted");
         res.redirect("/listings");
