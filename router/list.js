@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const {listingSchema, reviewSchema} = require("../schema.js");
+const {listingSchema} = require("../schema.js");
 const ExpressError = require("../utils/ExpressError.js");
 const wrapAsync = require("../utils/wrapAsync.js");
-const listing = require("../models/listing.js");
 const {isLoggedIn} = require("../middleware.js");
 const listingController = require("../controllers/listing.js");
 
@@ -34,12 +33,20 @@ const validateListing = (req,res,next)=>{
 //     res.send("Testcase added.");
 // })
 
+router
+.route("/")
+.get(wrapAsync(listingController.index))
+.post(isLoggedIn,validateListing,wrapAsync(listingController.addNewListing))
 
-router.get("/",wrapAsync(listingController.index))
 
 router.get("/new",isLoggedIn,listingController.createNewListing)
 
-router.get("/:id",wrapAsync(listingController.getListing))
+router
+.route("/:id")
+.get(wrapAsync(listingController.getListing))
+.put(isLoggedIn,validateListing,wrapAsync(listingController.updateListing))
+.delete(isLoggedIn,wrapAsync(listingController.destroyListing))
+
 
 // router.post("/listings",async(req,res,next)=>{
 //     let {title,description,image,price,location,country} = req.body;
@@ -62,12 +69,7 @@ router.get("/:id",wrapAsync(listingController.getListing))
     
 // })
 
-router.post("/",isLoggedIn,validateListing,wrapAsync(listingController.addNewListing))
 
 router.get("/:id/edit",wrapAsync(listingController.editListing))
-
-router.put("/:id",isLoggedIn,validateListing,wrapAsync(listingController.updateListing))
-
-router.delete("/:id",isLoggedIn,wrapAsync(listingController.destroyListing))
 
 module.exports = router;
