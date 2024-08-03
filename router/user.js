@@ -12,7 +12,7 @@ router
 router
 .route("/login")
 .get(userController.getLogIn)
-post(savedUrl,passport.authenticate("local",{failureRedirect: "/login", failureFlash: true}),userController.logIn);
+.post(savedUrl,passport.authenticate("local",{failureRedirect: "/login", failureFlash: true}),userController.logIn);
 
 
 router.get("/logout",userController.logOut);

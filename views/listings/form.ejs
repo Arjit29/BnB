@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 <body>
     <h3 id="text">Add your BnB</h3>
-    <form action="/listings" method="post" class="needs-validation" novalidate>
+    <form action="/listings" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" placeholder="Enter title" name="title" class="form-control" required>
@@ -18,9 +18,14 @@
             </div>
         </div>
         
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="image" class="form-label">Image</label>
             <input type="text" placeholder="Enter image URL" name="image" class="form-control">
+        </div> -->
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" placeholder="Enter image URL" name="image" class="form-control">
         </div>
          
         <div class="mb-3">
